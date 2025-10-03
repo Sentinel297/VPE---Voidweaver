@@ -1,0 +1,380 @@
+<Defs>
+<ThingDef ParentName="BuildingBase">
+	<defName>TwoWayVoidPortalSTNL</defName>
+	<label>Void Portal</label>
+	<description>A portal pulsing with unnatural energy, twisted creatures reside on the other side, including two elite entities that seem to be awaiting you.\n\nIt is advised to bring sources of light and large amounts of weaponry.</description>
+	<size>(3,3)</size>
+	<useHitPoints>false</useHitPoints>
+	<thingClass>VPE_Voidweaver.PortalToVoid</thingClass>
+	<tickerType>Normal</tickerType>
+	<drawerType>RealtimeOnly</drawerType>
+	<rotatable>false</rotatable>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<canOverlapZones>false</canOverlapZones>
+	<graphicData>
+		<texPath>Things/Building/VoidNode/Core</texPath>
+		<graphicClass>Graphic_Single_AgeSecs</graphicClass>
+		<drawSize>(3, 3)</drawSize>
+		<shaderType>VoidNodeParallax</shaderType>
+		<shaderParameters>
+			<_MaskTex>/Things/Building/VoidNode/InternalDustMask</_MaskTex>
+			<_DustTex>/Things/Building/VoidNode/InternalDust</_DustTex>
+			<_DissolveTex>/Things/Building/VoidNode/Core_m</_DissolveTex>
+			<_AmbientShake>.07</_AmbientShake>
+		</shaderParameters>
+	</graphicData>
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<passability>Impassable</passability>
+	<holdsRoof>true</holdsRoof>
+	<destroyable>True</destroyable>
+		<building>
+			<isEdifice>true</isEdifice>
+			<repairable>false</repairable>
+			<isInert>true</isInert>
+			<isTargetable>true</isTargetable>
+			<claimable>true</claimable>
+			<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+			<deconstructible>false</deconstructible>
+		</building>
+	<portal>
+		<pocketMapGenerator>TheVoid_STNL</pocketMapGenerator>
+		<exitDef>CaveExit</exitDef>
+		<enteredLetterLabel>The Void</enteredLetterLabel>
+		<enteredLetterText>You have crossed the line between realms, terrible creatures roam this endless ocean of jagged darkness.\n\nThis bizarre dimension will progressively claw at the humanity of those who linger in this forbidden realm.\n\nHurry to preserve your humanity, or else...\n\nVoid-touched creatures are empowered inside this plane of existence.</enteredLetterText>
+		<enteredLetterDef>ThreatBig</enteredLetterDef>
+		<traverseSound>TraversePitGate</traverseSound>
+		<pocketMapSize>200</pocketMapSize>
+	</portal>
+	<statBases>
+		<Flammability>0</Flammability>
+	</statBases>
+	<inspectorTabs>
+		<li>ITab_ContentsMapPortal</li>
+	</inspectorTabs>
+	<comps>
+		<li Class="CompProperties_Effecter">
+			<effecterDef>PsychicRitual_Sustained</effecterDef>
+		</li>
+		<li Class="VPE_Voidweaver.CompProperties_ClosePortalGizmo"/>
+	</comps>
+</ThingDef>
+  
+  <MapGeneratorDef>
+    <defName>TheVoid_STNL</defName>
+    <label>The Void</label>
+    <isUnderground>True</isUnderground>
+    <roofDef>VoidmetalRoof</roofDef>
+    <disableCallAid>true</disableCallAid>
+    <pocketMapProperties>
+      <biome>TheVoid_STNL</biome>
+      <temperature>10</temperature>
+    </pocketMapProperties>
+    <genSteps>
+      <li>MainVoidGroundSTNL</li>
+      <li>SummonEntitiesSTNL</li>
+	  <li>SpawnRevenantDuoSTNL</li>
+	  <li>SummonVoidStructuresSTNL</li>
+	  <li>PlaceVoidShardsSTNL</li>
+	  <li>PlaceVoidExitSTNL</li>
+	  <li>SpawnSpirePortalSTNL</li>
+      <!-- Disabling fogging metal hell, because it looks bad at the edges and FOW doesn't serve a practical purpose.
+      <li>Fog</li>-->
+    </genSteps>
+  </MapGeneratorDef>
+  
+<BiomeDef>
+	<defName>TheVoid_STNL</defName>
+	<label>Void</label>
+	<description>An endless ocean of darkness, a pulsing node of psychic energy can be seen far into the distance.</description>
+	<generatesNaturally>false</generatesNaturally>
+	<animalDensity>0</animalDensity>
+	<plantDensity>0</plantDensity>
+	<wildAnimalsCanWanderInto>false</wildAnimalsCanWanderInto>
+	<baseWeatherCommonalities>
+		<MetalHell>1</MetalHell>
+	</baseWeatherCommonalities>
+	<diseaseMtbDays>0</diseaseMtbDays>
+</BiomeDef>
+  
+<GenStepDef>
+	<defName>MainVoidGroundSTNL</defName>
+	<order>10</order>
+	<genStep Class="VPE_Voidweaver.Genstep_VoidGround"/>
+</GenStepDef>
+
+<GenStepDef>
+	<defName>SummonEntitiesSTNL</defName>
+	<order>12</order>
+	<genStep Class="VPE_Voidweaver.Genstep_SpawnEntities"/>
+</GenStepDef>
+
+<GenStepDef>
+	<defName>SummonVoidStructuresSTNL</defName>
+	<order>13</order>
+	<genStep Class="VPE_Voidweaver.Genstep_SpawnVoidStructures"/>
+</GenStepDef>
+
+<GenStepDef>
+	<defName>PlaceVoidShardsSTNL</defName>
+	<order>14</order>
+	<genStep Class="VPE_Voidweaver.Genstep_SpawnVoidShard"/>
+</GenStepDef>
+
+<GenStepDef>
+	<defName>SpawnRevenantDuoSTNL</defName>
+	<order>15</order>
+	<genStep Class="VPE_Voidweaver.Genstep_RevenantDuo"/>
+</GenStepDef>
+
+<GenStepDef>
+	<defName>PlaceVoidExitSTNL</defName>
+	<order>16</order>
+	<genStep Class="VPE_Voidweaver.Genstep_PlaceVoidExit"/>
+</GenStepDef>
+
+<GenStepDef>
+	<defName>SpawnSpirePortalSTNL</defName>
+	<order>17</order>
+	<genStep Class="VPE_Voidweaver.GenStep_SpawnSpirePortal"/>
+</GenStepDef>
+
+
+<!-- Void Shard -->
+
+<ThingDef ParentName="BuildingNaturalBase">
+	<defName>VPE_VoidShardSTNL</defName>
+	<label>Void Shard</label>
+	<description>A jagged mass of an obsidian-like material, seems like something is inside.\n\nThis shard appears to regenerate from minor damage at an unnatural rate, a singular heavy blow should break it open.</description>
+	<thingClass>VPE_Voidweaver.VoidShard</thingClass>
+	<category>Building</category>
+	<tickerType>Normal</tickerType>
+	<size>(1,1)</size>
+	<graphicData>
+		<graphicClass>Graphic_Single</graphicClass>
+		<texPath>UI_VoidweaverSTNL/Things/VoidShard/VoidShardA</texPath>
+		<drawSize>2</drawSize>
+		<drawOffset>(0, 0, 0)</drawOffset>
+	</graphicData>
+	<drawerType>MapMeshAndRealTime</drawerType>
+	<altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<blockWind>true</blockWind>
+	<fillPercent>0.75</fillPercent>
+	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	<rotatable>false</rotatable>
+	<statBases>
+		<MaxHitPoints>25</MaxHitPoints>
+		<Flammability>0</Flammability>
+		<Beauty>-12</Beauty>
+	</statBases>
+	<building>
+		<isInert>true</isInert>
+		<claimable>false</claimable>
+		<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+		<deconstructible>false</deconstructible>
+		<quickTargetable>true</quickTargetable>
+		<isTargetable>true</isTargetable>
+		<destroyEffecter>MetalhorrorDeath</destroyEffecter>
+	</building>
+	<comps>
+		<li Class="CompProperties_SelfhealHitpoints">
+			<ticksPerHeal>0</ticksPerHeal>
+			<!--  60k ticks = 1 day, 10 hp per day  -->
+		</li>
+		<li Class="CompProperties_Glower">
+			<glowRadius>3</glowRadius>
+			<glowColor>(255, 255, 255, 0)</glowColor>
+		</li>
+	</comps>
+</ThingDef>
+
+  <ThingSetMakerDef>
+    <defName>MapGen_VoidShardsLootSTNL</defName>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+
+        <!-- Books -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_Count">
+            <fixedParams>
+              <qualityGenerator>Reward</qualityGenerator>
+              <filter>
+                <thingDefs>
+                  <li>Schematic</li>
+                  <li>TextBook</li>
+                  <li MayRequire="Ludeon.RimWorld.Odyssey">Map</li>
+                </thingDefs>
+              </filter>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+		
+
+        <!-- Medicine -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MedicineUltratech</li>
+                </thingDefs>
+              </filter>
+              <countRange>5~10</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Luciferium -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Luciferium</li>
+                </thingDefs>
+              </filter>
+              <countRange>12~15</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Hyperweave & plasteel -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Plasteel</li>
+                  <li>Hyperweave</li>
+                </thingDefs>
+              </filter>
+              <countRange>50~100</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Advanced components -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>ComponentSpacer</li>
+                </thingDefs>
+              </filter>
+              <countRange>4~6</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Seeds -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">PoluxSeed</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">HarbingerSeed</li>
+                  <li MayRequire="Ludeon.RimWorld.Odyssey">ArcheanSeed</li>
+                </thingDefs>
+              </filter>
+              <countRange>1~2</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+		
+        <!-- Unique weapon -->
+        <li MayRequire="Ludeon.RimWorld.Odyssey">
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_Count">
+            <fixedParams>
+              <qualityGenerator>Reward</qualityGenerator>
+              <filter>
+                <thingSetMakerTagsToAllow>
+                  <li>UniqueWeapon</li>
+                </thingSetMakerTagsToAllow>
+              </filter>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Sentience catalyst -->
+        <li MayRequire="Ludeon.RimWorld.Odyssey">
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>SentienceCatalyst</li>
+                </thingDefs>
+              </filter>
+              <countRange>1~3</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+		
+        <!-- Gravlite panels -->
+        <li MayRequire="Ludeon.RimWorld.Odyssey">
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>GravlitePanel</li>
+                </thingDefs>
+              </filter>
+              <countRange>35~45</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Misc high value -->
+        <li>
+          <weight>2.0</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Apparel_PsychicInsanityLance</li>
+                  <li>Apparel_PsychicShockLance</li>
+                  <li>ArchotechArm</li>
+                  <li>ArchotechEye</li>
+                  <li>ArchotechLeg</li>
+                  <li>Gun_DoomsdayRocket</li>
+                  <li>Gun_TripleRocket</li>
+                  <li>MechSerumHealer</li>
+                  <li>MechSerumResurrector</li>
+                  <li>OrbitalTargeterBombardment</li>
+                  <li>OrbitalTargeterPowerBeam</li>
+				  <li>PsychicAmplifier</li>
+                  <li>PsychicAnimalPulser</li>
+                  <li>PsychicEmanator</li>
+                  <li>PsychicSoothePulser</li>
+                  <li>ReinforcedBarrel</li>
+                  <li>Shell_AntigrainWarhead</li>
+                  <li>TechprofSubpersonaCore</li>
+                  <li>TornadoGenerator</li>
+                  <li>VanometricPowerCell</li>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">ArchiteCapsule</li>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCapacitySerum</li>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">Genepack</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">BiomutationPulser</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Apparel_BiomutationLance</li>
+                  <li MayRequire="Ludeon.RimWorld.Odyssey">Gun_BeamRepeater</li>
+                </thingDefs>
+              </filter>
+              <countRange>1</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+      </options>
+    </root>
+  </ThingSetMakerDef>
+</Defs>

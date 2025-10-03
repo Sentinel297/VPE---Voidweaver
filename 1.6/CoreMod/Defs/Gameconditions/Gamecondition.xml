@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+    <GameConditionDef>
+    <defName>FriendDeathPallWEAVERSTNL</defName>
+    <conditionClass>VPE_Voidweaver.GameCondition_FriendDeathPallWEAVERSTNL</conditionClass>
+    <label>Controlled death pall resurrection</label>
+    <description>The dead will rise...For your side that is.</description>
+    <letterText>The dead will rise...For your side that is.</letterText>
+    <letterDef>PositiveEvent</letterDef>
+    <weatherDef>UnnaturalFogSTNL</weatherDef>
+    <canBePermanent>true</canBePermanent>
+    <natural>false</natural>
+    <allowUnderground>false</allowUnderground>
+  </GameConditionDef>
+  
+<GameConditionDef>
+	<defName>VPE_VoidStormSTNL</defName>
+	<conditionClass>VPE_Voidweaver.GameCondition_VoidStormSTNL</conditionClass>
+	<label>Void Storm</label>
+	<description>The Void is filled with strange patterns of psychic energy, affecting creatures inside it in many ways.</description>
+	<letterText>The Void is filled with strange patterns of psychic energy, affecting creatures inside it in many ways.</letterText>
+	<letterDef>NegativeEvent</letterDef>
+	<!-- <weatherDef>UnnaturalFogSTNL</weatherDef> -->
+	<canBePermanent>true</canBePermanent>
+	<natural>false</natural>
+	<allowUnderground>True</allowUnderground>
+</GameConditionDef>
+</Defs>

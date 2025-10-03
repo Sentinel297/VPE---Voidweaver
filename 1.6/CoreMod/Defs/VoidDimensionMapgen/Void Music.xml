@@ -1,0 +1,108 @@
+<Defs>
+
+<!-- Only Player In Arena -->
+
+<MusicTransitionDef>
+	<defName>VoidArenaDowntimeSTNL</defName>
+	<workerType>VPE_Voidweaver.VoidArenaDowntime</workerType>
+    <overridesInterruptions>true</overridesInterruptions>
+	<sequence>ArenaDownTimeSTNL</sequence>
+	<!-- <dangerRequirement>RequiresNoDanger</dangerRequirement> -->
+	<priority>1000</priority>
+</MusicTransitionDef>
+
+<MusicSequenceDef>
+	<defName>ArenaDownTimeSTNL</defName>
+	<loopDelayRange>0</loopDelayRange>
+	<minTimeToPlay>5</minTimeToPlay>
+	<loop>true</loop>
+	<songs>
+		<li>Voidweaver_Arena_DowntimeSTNL</li>
+	</songs>
+</MusicSequenceDef>
+<SongDef>
+	<defName>Voidweaver_Arena_DowntimeSTNL</defName>
+	<clipPath>VoidSpire/Voidweaver_VoidSpireDowntime</clipPath>
+	<volume>1.00</volume>
+	<commonality>0</commonality>
+</SongDef>
+
+<!-- Easy -->
+
+<MusicTransitionDef>
+	<defName>VoidArenaLightSTNL</defName>
+	<workerType>VPE_Voidweaver.VoidArenaLight</workerType>
+    <overridesInterruptions>true</overridesInterruptions>
+	<sequence>ArenaLightSTNL</sequence>
+	<!-- <dangerRequirement>RequiresNoDanger</dangerRequirement> -->
+	<priority>1000</priority>
+</MusicTransitionDef>
+
+<MusicSequenceDef>
+	<defName>ArenaLightSTNL</defName>
+	<loopDelayRange>0</loopDelayRange>
+	<minTimeToPlay>5</minTimeToPlay>
+	<loop>true</loop>
+	<songs>
+		<li>Voidweaver_Arena_LightSTNL</li>
+	</songs>
+</MusicSequenceDef>
+<SongDef>
+	<defName>Voidweaver_Arena_LightSTNL</defName>
+	<clipPath>VoidSpire/Voidweaver_VoidSpireArenaLight</clipPath>
+	<volume>2.00</volume>
+	<commonality>0</commonality>
+</SongDef>
+
+<!-- Medium -->
+
+<MusicTransitionDef>
+	<defName>VoidArenaMedSTNL</defName>
+	<workerType>VPE_Voidweaver.VoidArenaMedium</workerType>
+    <overridesInterruptions>true</overridesInterruptions>
+	<sequence>ArenaMedSTNL</sequence>
+	<!-- <dangerRequirement>RequiresNoDanger</dangerRequirement> -->
+	<priority>1000</priority>
+</MusicTransitionDef>
+<MusicSequenceDef>
+	<defName>ArenaMedSTNL</defName>
+	<loopDelayRange>0</loopDelayRange>
+	<minTimeToPlay>5</minTimeToPlay>
+	<loop>true</loop>
+	<songs>
+		<li>Voidweaver_Arena_MedSTNL</li>
+	</songs>
+</MusicSequenceDef>
+<SongDef>
+	<defName>Voidweaver_Arena_MedSTNL</defName>
+	<clipPath>VoidSpire/Voidweaver_VoidSpireArenaMed</clipPath>
+	<volume>1.00</volume>
+	<commonality>0</commonality>
+</SongDef>
+
+<!-- Heavy -->
+
+<MusicTransitionDef>
+	<defName>VoidArenaHeavySTNL</defName>
+	<workerType>VPE_Voidweaver.VoidArenaHeavy</workerType>
+    <overridesInterruptions>true</overridesInterruptions>
+	<sequence>ArenaHeavySTNL</sequence>
+	<!-- <dangerRequirement>RequiresNoDanger</dangerRequirement> -->
+	<priority>1000</priority>
+</MusicTransitionDef>
+<MusicSequenceDef>
+	<defName>ArenaHeavySTNL</defName>
+	<loopDelayRange>0</loopDelayRange>
+	<minTimeToPlay>5</minTimeToPlay>
+	<loop>true</loop>
+	<songs>
+		<li>Voidweaver_Arena_HeavySTNL</li>
+	</songs>
+</MusicSequenceDef>
+<SongDef>
+	<defName>Voidweaver_Arena_HeavySTNL</defName>
+	<clipPath>VoidSpire/Voidweaver_VoidSpireArenaHeavy</clipPath>
+	<volume>1.00</volume>
+	<commonality>0</commonality>
+</SongDef>
+</Defs>

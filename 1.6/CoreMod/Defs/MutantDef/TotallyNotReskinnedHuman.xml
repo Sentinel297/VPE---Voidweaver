@@ -1,0 +1,11 @@
+<Defs>
+<MutantDef>
+	<defName>HighTierHuman_STNL</defName>
+	<label>Human Two</label>
+	<description>Human so good I made another kind.</description>
+	<defaultFaction>Entities</defaultFaction>
+	<consideredSubhuman>true</consideredSubhuman>
+	<thinkTree>Humanlike</thinkTree>
+	<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+</MutantDef>
+</Defs>

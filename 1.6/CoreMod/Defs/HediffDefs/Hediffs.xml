@@ -1,0 +1,248 @@
+<Defs>
+	
+<HediffDef>
+      <defName>NopainanomalySTNL</defName>
+      <label>Immune To Pain</label>
+      <description>I'm immune to pain, and you shouldn't see this.</description>
+      <descriptionShort>I'm immune to pain, and you shouldn't see this.</descriptionShort>
+      <defaultLabelColor>(1, 0, 0)</defaultLabelColor>
+      <scenarioCanAdd>false</scenarioCanAdd>
+      <initialSeverity>1</initialSeverity> 
+      <minSeverity>0</minSeverity>
+      <maxSeverity>1</maxSeverity>
+      <isBad>false</isBad>
+      <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+      <stages>
+	         <li>
+			<painFactor>0</painFactor>
+			<becomeVisible>false</becomeVisible>
+         </li>
+      </stages>
+   </HediffDef> 
+   
+   <HediffDef>
+      <defName>UntendableSTNL</defName>
+      <label>Can't be tended to</label>
+      <description>Others won't try to tend to me...Boohooo..., and you shouldn't see this.</description>
+      <descriptionShort>Others won't try to tend to me...Boohooo..., and you shouldn't see this.</descriptionShort>
+      <defaultLabelColor>(1, 0, 0)</defaultLabelColor>
+      <scenarioCanAdd>false</scenarioCanAdd>
+	  <hediffClass>HediffWithComps</hediffClass>
+      <initialSeverity>1</initialSeverity> 
+      <minSeverity>0</minSeverity>
+      <maxSeverity>1</maxSeverity>
+      <isBad>false</isBad>
+      <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+      <stages>
+	         <li>
+			<becomeVisible>false</becomeVisible>
+         </li>
+      </stages>
+   </HediffDef> 
+	
+<HediffDef>
+	<defName>VoidsnareSTNL</defName>
+	<label>Ensnared!</label>
+	<description>This creature's mobility is greatly reduced due to void tentacles slowing them down.</description>
+	<descriptionShort>This creature's mobility is greatly reduced due to void tentacles slowing them down.</descriptionShort>
+	<defaultLabelColor>(1, 0, 0)</defaultLabelColor>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0</minSeverity>
+	<maxSeverity>1</maxSeverity>
+	<isBad>false</isBad>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<stages>
+		<li>
+			<statOffsets>
+				<MoveSpeed>-1000</MoveSpeed>
+			</statOffsets>
+		</li>
+	</stages>
+	<hediffClass>HediffWithComps</hediffClass>
+	<comps>
+		<li Class="HediffCompProperties_Effecter">
+			<stateEffecter>BiomutationPulserWarmup</stateEffecter>
+		</li>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>6000</disappearsAfterTicks>
+			<showRemainingTime>True</showRemainingTime>
+		</li>
+	</comps>
+</HediffDef> 	
+	
+ <HediffDef>
+      <defName>ProtometalhorrorSTNL</defName>
+      <label>Proto-Horror</label>
+      <description>This person has been mutated into a being that is half human half metalhorror, they also possess the ability to cut down enemies thanks to their new nature.</description>
+      <descriptionShort>This person has been mutated into a being that is half human half metalhorror, they also possess the ability to cut down enemies thanks to their new nature.</descriptionShort>
+      <defaultLabelColor>(1, 0, 0)</defaultLabelColor>
+      <scenarioCanAdd>true</scenarioCanAdd>
+      <initialSeverity>1</initialSeverity> 
+      <minSeverity>0</minSeverity>
+      <maxSeverity>1</maxSeverity>
+      <isBad>false</isBad>
+      <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+      <stages>
+	         <li>
+		    <minSeverity>1</minSeverity>
+			<painFactor>0.25</painFactor>
+            <statOffsets>
+               <MoveSpeed>-1</MoveSpeed>
+            </statOffsets>
+            <statFactors>
+               <IncomingDamageFactor>0.75</IncomingDamageFactor>
+            </statFactors>
+         </li>
+      </stages>
+      <renderNodeProperties>
+         <li>
+            <debugLabel>Metalhorror Body</debugLabel>
+            <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+            <texPaths>
+               <li>Pawn/Protohorror/Protohorror</li>
+            </texPaths>
+            <baseLayer>94</baseLayer>
+            <texSeed>1</texSeed>
+         </li>
+      </renderNodeProperties>
+      <hediffClass>HediffWithComps</hediffClass>
+	  <comps>
+<li Class="HediffCompProperties_VerbGiver">
+            <tools>
+               <li>
+                  <label>Metal blade</label>
+                  <capacities>
+                     <li>Cut</li>
+					 <li>Stab</li>
+                  </capacities>
+                  <power>20</power>
+                  <cooldownTime>1</cooldownTime>
+                  <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+               </li>
+            </tools>
+         </li>
+</comps>
+   </HediffDef> 
+   
+   
+<HediffDef>
+	<defName>VoidLinkSTNL</defName>
+	<label>Void-Link</label>
+	<defaultLabelColor>(0.7, 0.7, 0.7)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<description>This person has been linked to the void. It lives within them, guiding their actions and twisting their flesh. They no longer need comfort.</description>
+	<isBad>false</isBad>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<stages>
+		<li>
+			<disablesNeeds>
+				<li>Comfort</li>
+			</disablesNeeds>
+			<statFactors>
+				<StudyEfficiency>1.5</StudyEfficiency>
+				<PsychicSensitivity>1.25</PsychicSensitivity>
+			</statFactors>
+			<regeneration>50</regeneration>
+		</li>
+	</stages>
+</HediffDef>
+
+<!-- Void Dimension Related -->
+
+<HediffDef>
+	<defName>VPE_LosingHumanitySTNL</defName>
+	<label>Losing Humanity</label>
+	<description>Prolonged exposure to the Void tears at the soul. This person is slowly losing their humanity, exit the Void to retain it.\n\nSomething stirs within their skin...</description>
+	<hediffClass>VPE_Voidweaver.Hediff_LosingHumanity</hediffClass>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0</minSeverity>
+	<maxSeverity>10</maxSeverity>
+	<defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+	<makesSickThought>false</makesSickThought>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<comps>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+</HediffDef>
+
+<HediffDef>
+	<defName>VPE_VoidPoweredSTNL</defName>
+	<label>Void-Powered</label>
+	<description>This creature is drawing strength from the ambient psychic resonance of the Void, causing it to become more resilient and powerful.\n\nLeaving the Void will cause this condition to disappear.</description>
+	<hediffClass>VPE_Voidweaver.Hediff_VoidPowered</hediffClass>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0</minSeverity>
+	<maxSeverity>1</maxSeverity>
+	<defaultLabelColor>(0.8, 0.8, 0.8)</defaultLabelColor>
+	<makesSickThought>false</makesSickThought>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<stages>
+		<li>
+			<painFactor>0.25</painFactor>
+			<totalBleedFactor>0.5</totalBleedFactor>
+			<statFactors>
+			    <MeditationFocusGain>5</MeditationFocusGain>
+				<PsychicSensitivity>2</PsychicSensitivity>
+				<VPE_PsyfocusCostFactor>0.5</VPE_PsyfocusCostFactor>
+				<PsychicEntropyGain>0.5</PsychicEntropyGain>
+				<PsychicEntropyMax>2</PsychicEntropyMax>
+				<!-- Non-Psy -->
+				<IncomingDamageFactor>0.75</IncomingDamageFactor>
+			</statFactors>
+			<capMods>
+			<li>
+			<capacity>Moving</capacity>
+			<postFactor>1.10</postFactor>
+			</li>
+			</capMods>
+		</li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+</HediffDef>
+
+<!-- Suppressed -->
+
+<HediffDef>
+	<defName>VoidNullifierNearby_STNL</defName>
+	<label>Void suppression</label>
+	<description>A nearby Void nullifier is preventing this creature from using psychic abilities.\n\nDestroy it.</description>
+	<defaultLabelColor>(0.7, 0.7, 0.7)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0</minSeverity>
+	<maxSeverity>1</maxSeverity>
+	<defaultLabelColor>(0.8, 0.8, 0.8)</defaultLabelColor>
+	<makesSickThought>false</makesSickThought>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<stages>
+		<li>
+			<statFactors>
+				<PsychicSensitivity>0</PsychicSensitivity>
+			</statFactors>
+		</li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Effecter">
+			<stateEffecter>BiomutationPulserWarmup</stateEffecter>
+		</li>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>120</disappearsAfterTicks>
+			<showRemainingTime>false</showRemainingTime>
+		</li>
+	</comps>
+</HediffDef>
+   
+</Defs>

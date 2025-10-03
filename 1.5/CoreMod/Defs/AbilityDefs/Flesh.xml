@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>	
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidmassSTNL</defName>
+<label>Weave Small Void Mass</label>
+<description>Manipulate the fabric of the void to manifest a mass of void metal.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/Mass</iconPath>
+<castSound>PsychicRitual_Interrupted</castSound>
+<castTime>15</castTime>
+<range>6.9</range>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>1</level>
+<order>2</order>
+<psyfocusCost>0.10</psyfocusCost>
+<entropyGain>15</entropyGain>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidmetalMassSmallSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>AgonyPulseExplosion</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_SnareSTNL</defName>
+    <label>Void Snare</label>
+    <description>Ensnare the targets with void tentacles, massively slowing them down.</description>
+    <iconPath>UI_VoidweaverSTNL/Abilities/Snare</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>120</castTime>
+	<castSound>Pawn_Shambler_Alert</castSound>
+    <range>45</range>
+    <radius>12.5</radius>
+    <targetMode>Location</targetMode>
+    <hasAoE>true</hasAoE>
+	<needsTicking>true</needsTicking>
+    <targetingParametersForAoE>
+      <canTargetSelf>False</canTargetSelf>
+      <canTargetHumans>True</canTargetHumans>
+      <canTargetMechs>true</canTargetMechs>
+      <canTargetAnimals>True</canTargetAnimals>
+      <neverTargetIncapacitated>false</neverTargetIncapacitated>
+    </targetingParametersForAoE>
+    <fleckOnTarget>VFEP_PsycastAreaEffectSlow</fleckOnTarget>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_VoidweaverSTNL</path>
+        <level>2</level>
+        <order>1</order>
+        <psyfocusCost>0.06</psyfocusCost>
+        <entropyGain>90</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidmassSTNL</li>
+        </prerequisites>
+      </li>
+<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VoidsnareSTNL</hediff>
+      </li>
+	  <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>AgonyPulseExplosion</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>3</scale>
+</li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoiddeadmineSTNL</defName>
+<label>Weave Unstable Deadlife Dust Node</label>
+<description>Weave a node portal out of void energy, this portal is unstable and will explode upon taking the slightest amount of damage. Releasing deadlife dust in the process.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/Mine</iconPath>
+<castTime>15</castTime>
+<range>15</range>
+<castSound>VoidMonolith_ActivatedL0L1</castSound>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>2</level>
+<order>2</order>
+<psyfocusCost>0.09</psyfocusCost>
+<entropyGain>50</entropyGain>
+        <prerequisites>
+          <li>VPE_SnareSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>TrapIED_DeadlifeSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>RevenantKilledCompleteBurst</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidwallSTNL</defName>
+<label>Weave Void Metal Wall</label>
+<description>Manipulate the fabric of the void to manifest a wall made out of void metal.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/Wall</iconPath>
+<castTime>15</castTime>
+<castSound>WarpedObelisk_Impact</castSound>
+<range>6.9</range>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>3</level>
+<order>2</order>
+<psyfocusCost>0.10</psyfocusCost>
+<entropyGain>150</entropyGain>
+        <prerequisites>
+          <li>VPE_VoiddeadmineSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidmetalWallSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>MonolithStage2</effecterDef>
+<maintainForTicks>120</maintainForTicks>
+<scale>1</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidportalRevSTNL</defName>
+<label>Weave Void Portal (Revenant)</label>
+<description>Weave a portal made out of void energy, allowing Revenants to enter this realm.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/VoidRev</iconPath>
+<castTime>15</castTime>
+<castSound>VoidMonolith_ActivatedL2L3</castSound>
+<range>6.9</range>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>4</level>
+<order>3</order>
+<psyfocusCost>0.70</psyfocusCost>
+<entropyGain>100</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidwallSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidportalRevSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>RevenantKilledCompleteBurst</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidportalNoctolsSTNL</defName>
+<label>Weave Void Portal (Noctol)</label>
+<description>Weave a portal made out of void energy, allowing Noctols to enter this realm.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/VoidNoctol</iconPath>
+<castTime>15</castTime>
+<range>6.9</range>
+<castSound>VoidMonolith_ActivatedL1L2</castSound>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>4</level>
+<order>2</order>
+<psyfocusCost>0.24</psyfocusCost>
+<entropyGain>45</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidwallSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidportalNoctolSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>RevenantKilledCompleteBurst</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidportalmetalSTNL</defName>
+<label>Weave Void Portal (Metalhorror)</label>
+<description>Weave a portal made out of void energy, allowing Metalhorrors to enter this realm.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/VoidHorror</iconPath>
+<castTime>15</castTime>
+<range>6.9</range>
+<castSound>VoidMonolith_ActivatedL1L2</castSound>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>4</level>
+<order>1</order>
+<psyfocusCost>0.49</psyfocusCost>
+<entropyGain>70</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidwallSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidportalmetalSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>RevenantKilledCompleteBurst</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_NoctolithSTNL</defName>
+<label>Weave Protolith</label>
+<description>Manifest a structure capable of producing bioferrite.</description>
+<iconPath>Things/Building/Noctolith/Noctolith</iconPath>
+<castTime>15</castTime>
+<castSound>VoidMonolith_ActivatedL2L3</castSound>
+<range>6.9</range>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>5</level>
+<order>1</order>
+<psyfocusCost>0.60</psyfocusCost>
+<entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidportalRevSTNL</li>
+		  <li>VPE_VoidportalmetalSTNL</li>
+		  <li>VPE_VoidportalNoctolsSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>NoctolithSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>BiomutationPulserUsed</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>2</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidstructureSTNL</defName>
+<label>Weave Void Structure</label>
+<description>Manifest a void structure, it appears to lose fragments over time. These fragments are similar to shards.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/Structure</iconPath>
+<castTime>15</castTime>
+<castSound>VoidMonolith_ActivatedL2L3</castSound>
+<range>6.9</range>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>5</level>
+<order>2</order>
+<psyfocusCost>0.60</psyfocusCost>
+<entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidportalRevSTNL</li>
+		  <li>VPE_VoidportalmetalSTNL</li>
+		  <li>VPE_VoidportalNoctolsSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidStructureSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>BiomutationPulserUsed</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>2</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_ProtohorrorSTNL</defName>
+    <label>Proto-Horror</label>
+    <description>Turns the target into an half metalhorror and half human. reducing their feeling of pain and the amount of damage taken at the cost of movement speed.</description>
+    <iconPath>UI_VoidweaverSTNL/Abilities/Proto</iconPath>
+    <castTime>120</castTime>
+    <targetMode>Pawn</targetMode>
+    <range>14</range>
+	<castSound>VoidMonolith_ActivatedL2L3</castSound>
+	<needsTicking>true</needsTicking>
+<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>True</canTargetSelf>
+			<canTargetAnimals>false</canTargetAnimals>
+			<canTargetPawns>True</canTargetPawns>
+			<canTargetHumans>True</canTargetHumans>
+			<canTargetMechs>false</canTargetMechs>
+		</targetingParameters>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_VoidweaverSTNL</path>
+        <level>6</level>
+        <order>1</order>
+        <psyfocusCost>0.40</psyfocusCost>
+        <entropyGain>125</entropyGain>
+        <prerequisites>
+          <li>VPE_NoctolithSTNL</li>
+		  <li>VPE_VoidstructureSTNL</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>ProtometalhorrorSTNL</hediff>
+      </li>
+	  <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>PsychicRitual_Complete</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_VoidgateSTNL</defName>
+<label>Weave Void Gate</label>
+<description>Weave a Void Gate, A stronger link to the Void allowing armies of entities to enter this realm, the leak will cause a planet-wide unnatural darkness.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/VoidGate</iconPath>
+<castTime>15</castTime>
+<range>15</range>
+<castSound>VoidMonolith_ActivatedL2L3</castSound>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>7</level>
+<order>2</order>
+<psyfocusCost>0.99</psyfocusCost>
+<entropyGain>750</entropyGain>
+        <prerequisites>
+          <li>VPE_ProtohorrorSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>VoidGateSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>AgonyPulseExplosion</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>3</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+<defName>VPE_DeathpallgateSTNL</defName>
+<label>Weave Death Pall Gate</label>
+<description>Weave a Death Pall Gate, A link to the Void's deepest parts. This gate spews out clouds of dark archites that will resurrect any corpses for your faction.</description>
+<iconPath>UI_VoidweaverSTNL/Abilities/VoidDeathGate</iconPath>
+<castTime>15</castTime>
+<range>15</range>
+<castSound>VoidMonolith_ActivatedL2L3</castSound>
+<targetMode>Location</targetMode>
+<abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+<needsTicking>true</needsTicking>
+<chance>0</chance>
+<modExtensions>
+<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+<path>VPE_VoidweaverSTNL</path>
+<level>7</level>
+<order>1</order>
+<psyfocusCost>0.99</psyfocusCost>
+<entropyGain>800</entropyGain>
+        <prerequisites>
+          <li>VPE_VoidgateSTNL</li>
+        </prerequisites>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_Building">
+<building>DeathGateSTNL</building>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>AgonyPulseExplosion</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1.5</scale>
+</li>
+</modExtensions>
+</VFECore.Abilities.AbilityDef>
+
+<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_VoidLinkSTNL</defName>
+    <label>Void-Link</label>
+    <description>Binds the target to the void, granting them the ability to recover from wounds as well as increased psychic sensitivity and void study rate while negating their need for comfort. The target will be Inhumanized.</description>
+    <iconPath>UI_VoidweaverSTNL/Abilities/Void-Link</iconPath>
+    <castTime>120</castTime>
+	<chance>0</chance>
+    <targetMode>Pawn</targetMode>
+    <range>14</range>
+	<castSound>VoidMonolith_ActivatedL2L3</castSound>
+	<needsTicking>true</needsTicking>
+<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>True</canTargetSelf>
+			<canTargetAnimals>false</canTargetAnimals>
+			<canTargetPawns>True</canTargetPawns>
+			<canTargetHumans>True</canTargetHumans>
+			<canTargetMechs>false</canTargetMechs>
+		</targetingParameters>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_VoidweaverSTNL</path>
+        <level>8</level>
+        <order>1</order>
+        <psyfocusCost>0.90</psyfocusCost>
+        <entropyGain>125</entropyGain>
+        <prerequisites>
+          <li>VPE_DeathpallgateSTNL</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VoidLinkSTNL</hediff>
+      </li>
+	  <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+<effecterDef>PsychicRitual_Complete</effecterDef>
+<maintainForTicks>60</maintainForTicks>
+<scale>1</scale>
+</li>
+<li Class="VFECore.Abilities.AbilityExtension_ExtraHediffs">
+<onTarget>
+<li>Inhumanized</li>
+</onTarget>
+</li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+</Defs>
