@@ -533,7 +533,6 @@
 				<maxSpawnedPawnsPoints>1500</maxSpawnedPawnsPoints>
 				<lordJob>LordJob_AssaultColony</lordJob>
 				<shouldJoinParentLord>True</shouldJoinParentLord>
-				<hediffToApply>UntendableSTNL</hediffToApply>
 			</li>
 			<li Class="CompProperties_SelfhealHitpoints">
 				<ticksPerHeal>60</ticksPerHeal>
@@ -602,7 +601,6 @@
 				<maxSpawnedPawnsPoints>450</maxSpawnedPawnsPoints>
 				<lordJob>LordJob_AssaultColony</lordJob>
 				<shouldJoinParentLord>True</shouldJoinParentLord>
-				<hediffToApply>UntendableSTNL</hediffToApply>
 			</li>
 			<li Class="CompProperties_SelfhealHitpoints">
 				<ticksPerHeal>60</ticksPerHeal>
@@ -676,7 +674,6 @@
 				<spawnSound>MeatExplosionSmall</spawnSound>
 				<initialPawnsPoints>200</initialPawnsPoints>
 				<maxSpawnedPawnsPoints>1000</maxSpawnedPawnsPoints>
-				<hediffToApply>UntendableSTNL</hediffToApply>
 			</li>
 			<li Class="CompProperties_SelfhealHitpoints">
 				<ticksPerHeal>60</ticksPerHeal>
@@ -933,7 +930,6 @@
 				<spawnSound>MeatExplosionSmall</spawnSound>
 				<initialPawnsPoints>5000</initialPawnsPoints>
 				<maxSpawnedPawnsPoints>5000</maxSpawnedPawnsPoints>
-				<hediffToApply>UntendableSTNL</hediffToApply>
 			</li>
 		</comps>
 	</ThingDef>

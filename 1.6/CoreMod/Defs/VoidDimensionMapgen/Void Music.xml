@@ -20,6 +20,7 @@
 		<li>Voidweaver_Arena_DowntimeSTNL</li>
 	</songs>
 </MusicSequenceDef>
+
 <SongDef>
 	<defName>Voidweaver_Arena_DowntimeSTNL</defName>
 	<clipPath>VoidSpire/Voidweaver_VoidSpireDowntime</clipPath>
@@ -47,6 +48,7 @@
 		<li>Voidweaver_Arena_LightSTNL</li>
 	</songs>
 </MusicSequenceDef>
+
 <SongDef>
 	<defName>Voidweaver_Arena_LightSTNL</defName>
 	<clipPath>VoidSpire/Voidweaver_VoidSpireArenaLight</clipPath>
@@ -64,6 +66,7 @@
 	<!-- <dangerRequirement>RequiresNoDanger</dangerRequirement> -->
 	<priority>1000</priority>
 </MusicTransitionDef>
+
 <MusicSequenceDef>
 	<defName>ArenaMedSTNL</defName>
 	<loopDelayRange>0</loopDelayRange>
@@ -73,6 +76,7 @@
 		<li>Voidweaver_Arena_MedSTNL</li>
 	</songs>
 </MusicSequenceDef>
+
 <SongDef>
 	<defName>Voidweaver_Arena_MedSTNL</defName>
 	<clipPath>VoidSpire/Voidweaver_VoidSpireArenaMed</clipPath>
@@ -85,11 +89,12 @@
 <MusicTransitionDef>
 	<defName>VoidArenaHeavySTNL</defName>
 	<workerType>VPE_Voidweaver.VoidArenaHeavy</workerType>
-    <overridesInterruptions>true</overridesInterruptions>
+	<overridesInterruptions>true</overridesInterruptions>
 	<sequence>ArenaHeavySTNL</sequence>
 	<!-- <dangerRequirement>RequiresNoDanger</dangerRequirement> -->
 	<priority>1000</priority>
 </MusicTransitionDef>
+
 <MusicSequenceDef>
 	<defName>ArenaHeavySTNL</defName>
 	<loopDelayRange>0</loopDelayRange>
@@ -99,6 +104,7 @@
 		<li>Voidweaver_Arena_HeavySTNL</li>
 	</songs>
 </MusicSequenceDef>
+
 <SongDef>
 	<defName>Voidweaver_Arena_HeavySTNL</defName>
 	<clipPath>VoidSpire/Voidweaver_VoidSpireArenaHeavy</clipPath>
