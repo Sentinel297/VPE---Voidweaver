@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VanillaPsycastsExpanded.PsycasterPathDef>
+    <defName>VPE_VoidweaverSTNL</defName>
+    <label>Voidweaver</label>
+    <description>Weave the fabric of the void to manifest different horrific structures and phenomenons.</description>
+    <background>UI_VoidweaverSTNL/Tree/Weavertreebase</background>
+    <altBackground>UI_VoidweaverSTNL/Tree/Weavertreebase</altBackground>
+	<lockedReason>Void Focus only</lockedReason>
+<requiredFocus>Void</requiredFocus>
+    <tab>Misc</tab>
+    <tooltip>Weave the fabric of the void to manifest different horrific structures and phenomenons.</tooltip>
+  </VanillaPsycastsExpanded.PsycasterPathDef>
+  
+</Defs>

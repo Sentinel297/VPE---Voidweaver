@@ -1,0 +1,467 @@
+<Defs>
+<ThingDef>
+	<defName>VoidFlameBrazierSTNL</defName>
+	<label>Void-flame brazier</label>
+	<description>A brazier with a seemingly neverending flame, its existence defies science as we know it.</description>
+	<thingClass>ThingWithComps</thingClass>
+	<uiOrder>2830</uiOrder>
+	<category>Building</category>
+	<tickerType>Normal</tickerType>
+	<drawerType>RealtimeOnly</drawerType>
+	<fillPercent>0.15</fillPercent>
+	<statBases>
+		<MaxHitPoints>80</MaxHitPoints>
+		<WorkToBuild>1000</WorkToBuild>
+		<Flammability>0</Flammability>
+		<Mass>15</Mass>
+		<MeditationFocusStrength>0.0</MeditationFocusStrength>
+	</statBases>
+	<selectable>true</selectable>
+	<uiOrder>2820</uiOrder>
+	<uiIconOffset>(0, -0.04)</uiIconOffset>
+	<!-- <minifiedDef>MinifiedThing</minifiedDef> -->
+	<placeWorkers>
+		<li>PlaceWorker_Heater</li>
+		<li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+		<li>PlaceWorker_GlowRadius</li>
+	</placeWorkers>
+	<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+	<canOverlapZones>false</canOverlapZones>
+	<altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<pathCost>42</pathCost>
+	<rotatable>false</rotatable>
+	<graphicData>
+		<!-- art+to -->
+		<texPath>Things/Building/Misc/Brazier</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>CutoutComplex</shaderType>
+		<shadowData>
+			<volume>(0.55, 0.35, 0.3)</volume>
+			<offset>(0, 0, -0.28)</offset>
+		</shadowData>
+		<damageData>
+			<rect>(0.2,0.3,0.6,0.6)</rect>
+		</damageData>
+	</graphicData>
+	<useHitPoints>false</useHitPoints>
+	<building>
+		<repairable>false</repairable>
+		<isTargetable>true</isTargetable>
+		<claimable>false</claimable>
+		<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+		<deconstructible>false</deconstructible>
+	</building>
+	<comps Inherit="False">
+		<li Class="CompProperties_Glower">
+			<glowRadius>20</glowRadius>
+			<glowColor>(78, 226, 229, 0)</glowColor>
+			<!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
+		</li>
+		<!-- <li Class="CompProperties_HeatPusher"> -->
+		<!-- <compClass>CompHeatPusherPowered</compClass> -->
+		<!-- <heatPerSecond>3.5</heatPerSecond> -->
+		<!-- <heatPushMaxTemperature>23</heatPushMaxTemperature> -->
+		<!-- </li> -->
+		<li Class="CompProperties_DarklightOverlay">
+			<fireSize>1</fireSize>
+			<offset>(0,0,0.18)</offset>
+		</li>
+		<li Class="CompProperties_MeditationFocus">
+			<statDef>MeditationFocusStrength</statDef>
+			<focusTypes>
+				<li>Flame</li>
+			</focusTypes>
+			<offsets>
+				<li Class="FocusStrengthOffset_Lit">
+					<offset>0.15</offset>
+				</li>
+				<li Class="FocusStrengthOffset_BuildingDefsLit">
+					<defs>
+						<li>Campfire</li>
+						<li>TorchLamp</li>
+						<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+						<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+					</defs>
+					<offsetPerBuilding>0.02</offsetPerBuilding>
+					<radius>9.9</radius>
+					<maxBuildings>8</maxBuildings>
+					<explanationKey>MeditationFocusPerFlame</explanationKey>
+					<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+					<drawRingRadius>false</drawRingRadius>
+				</li>
+			</offsets>
+		</li>
+	</comps>
+</ThingDef>
+
+<VPE_Voidweaver.ArenaSpawnerDef ParentName="BuildingBase">
+    <defName>VoidNode_SpireSTNL</defName>
+    <label>void node</label>
+    <description>A roiling sphere of twisted psychic energy. Peeking inside shows a field of endless darkness.</description>
+    <size>(7, 7)</size>
+    <drawerType>RealtimeOnly</drawerType>
+    <thingClass>VPE_Voidweaver.VoidNode_Spire</thingClass>
+	<!-- Easy -->
+	<EligibleEntitiesForEasyMode>
+	<li>Toughspike</li>
+	<li>Metalhorror</li>
+	</EligibleEntitiesForEasyMode>
+	<!-- Normal -->
+	<EligibleEntitiesForNormalMode>
+	<li>Bulbfreak</li>
+	<li>Trispike</li>
+	<li>Metalhorror</li>
+	<li>Gorehulk</li>
+	</EligibleEntitiesForNormalMode>
+	<!-- Hard Mobs -->
+	<EligibleEntitiesForHardMode>
+	<li>ShamblerSwarmer</li>
+	<li>Devourer</li>
+	<li>Ghoul</li>
+	</EligibleEntitiesForHardMode>
+	<!-- Hard Boss -->
+	<EligibleBossesForHardMode>
+	<li>Dreadmeld</li>
+	</EligibleBossesForHardMode>
+    <graphicData>
+      <texPath>Things/Building/VoidNode/Core</texPath>
+      <graphicClass>Graphic_Single_AgeSecs</graphicClass>
+      <drawSize>(7, 7)</drawSize>
+      <shaderType>VoidNodeParallax</shaderType>
+      <shaderParameters>
+        <_MaskTex>/Things/Building/VoidNode/InternalDustMask</_MaskTex>
+        <_DustTex>/Things/Building/VoidNode/InternalDust</_DustTex>
+        <_DissolveTex>/Things/Building/VoidNode/Core_m</_DissolveTex>
+        <_AmbientShake>.05</_AmbientShake>
+      </shaderParameters>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <tickerType>Normal</tickerType>
+    <category>Building</category>
+    <rotatable>false</rotatable>
+    <useHitPoints>false</useHitPoints>
+    <destroyable>false</destroyable>
+    <passability>Impassable</passability>
+    <building>
+      <repairable>false</repairable>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isTargetable>false</isTargetable>
+    </building>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>40</glowRadius>
+        <glowColor>(300,300,370,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>VoidNodeAttached</effecterDef>
+      </li>
+    </comps>
+  </VPE_Voidweaver.ArenaSpawnerDef>
+  
+  <ThingDef ParentName="BuildingBase">
+	<defName>Voidweaver_VoidNullifierSTNL</defName>
+	<label>Void nullifier</label>
+	<description>A twisted orb of psychic energy, being near it causes creatures to feel hollow, as if something was missing.</description>
+	<size>(4,4)</size>
+	<useHitPoints>true</useHitPoints>
+	<thingClass>VPE_Voidweaver.VoidNullifier</thingClass>
+	<tickerType>Normal</tickerType>
+	<drawerType>RealtimeOnly</drawerType>
+	<rotatable>false</rotatable>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<canOverlapZones>false</canOverlapZones>
+	<graphicData>
+		<texPath>Things/Building/VoidNode/Core</texPath>
+		<graphicClass>Graphic_Single_AgeSecs</graphicClass>
+		<drawSize>(4, 4)</drawSize>
+		<shaderType>VoidNodeParallax</shaderType>
+		<shaderParameters>
+			<_MaskTex>/Things/Building/VoidNode/InternalDustMask</_MaskTex>
+			<_DustTex>/Things/Building/VoidNode/InternalDust</_DustTex>
+			<_DissolveTex>/Things/Building/VoidNode/Core_m</_DissolveTex>
+			<_AmbientShake>.07</_AmbientShake>
+		</shaderParameters>
+	</graphicData>
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<passability>Impassable</passability>
+	<holdsRoof>true</holdsRoof>
+	<destroyable>True</destroyable>
+	<building>
+		<isEdifice>true</isEdifice>
+		<repairable>false</repairable>
+		<isInert>true</isInert>
+		<isTargetable>true</isTargetable>
+		<claimable>true</claimable>
+		<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+		<deconstructible>false</deconstructible>
+	</building>
+	<statBases>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Flammability>0</Flammability>
+	</statBases>
+	<comps>
+		<li Class="CompProperties_Effecter">
+			<effecterDef>PsychicRitual_Sustained</effecterDef>
+		</li>
+		<li Class="CompProperties_MoteEmitter">
+			<mote>Mote_PsychicEmanatorEffect</mote>
+			<emissionInterval>60</emissionInterval>
+		</li>
+	</comps>
+</ThingDef>
+
+<ThingDef ParentName="BuildingBase">
+	<defName>VoidPortalToSpireSTNL</defName>
+	<label>Spire Portal</label>
+	<description>A portal pulsing with unnatural energy.\n\n It leads inside a distant spire of void metal.\n\nA sphere of psychic energy can be seen on the other side of the portal.</description>
+	<size>(5,5)</size>
+	<useHitPoints>false</useHitPoints>
+	<thingClass>VPE_Voidweaver.PortalToVoid</thingClass>
+	<tickerType>Normal</tickerType>
+	<drawerType>RealtimeOnly</drawerType>
+	<rotatable>false</rotatable>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<canOverlapZones>false</canOverlapZones>
+	<graphicData>
+		<texPath>Things/Building/VoidNode/Core</texPath>
+		<graphicClass>Graphic_Single_AgeSecs</graphicClass>
+		<drawSize>(4, 4)</drawSize>
+		<shaderType>VoidNodeParallax</shaderType>
+		<shaderParameters>
+			<_MaskTex>/Things/Building/VoidNode/InternalDustMask</_MaskTex>
+			<_DustTex>/Things/Building/VoidNode/InternalDust</_DustTex>
+			<_DissolveTex>/Things/Building/VoidNode/Core_m</_DissolveTex>
+			<_AmbientShake>.07</_AmbientShake>
+		</shaderParameters>
+	</graphicData>
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<passability>Impassable</passability>
+	<holdsRoof>true</holdsRoof>
+	<destroyable>True</destroyable>
+	<building>
+		<isEdifice>true</isEdifice>
+		<repairable>false</repairable>
+		<isInert>true</isInert>
+		<isTargetable>true</isTargetable>
+		<claimable>false</claimable>
+		<canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+		<deconstructible>false</deconstructible>
+	</building>
+	<portal>
+		<pocketMapGenerator>VoidSpire_STNL</pocketMapGenerator>
+		<exitDef>CaveExit</exitDef>
+		<enteredLetterLabel>Void Spire</enteredLetterLabel>
+		<enteredLetterText>A massive node of archotechnological energy lies dormant within.\n\nStepping closer may cause it to summon entities, however, Void shards can be seen within this node, dealing with the entities might trigger a response causing these shards to appear nearby.\n\nThe Void node will answer your assault in kind, the more people you send at it the larger the swarm of entities will be.\n\nIt seems that Void shards are able to prevent the manifestation of new entities, it is recommended to leave a shard behind if you plan to leave this place.\n\nLeaving this place will cause the Void node to reach critical mass and absorb any items left behind, corpses of your faction will prevent this phenomenon from happening.\n\nThe exit will remain blocked until one side wins, additional troops won't be able to enter once the onslaught begins, everyone must get inside at the same time.</enteredLetterText>
+		<enteredLetterDef>ThreatBig</enteredLetterDef>
+		<traverseSound>TraversePitGate</traverseSound>
+		<pocketMapSize>150</pocketMapSize>
+	</portal>
+	<statBases>
+		<Flammability>0</Flammability>
+	</statBases>
+	<inspectorTabs>
+		<li>ITab_ContentsMapPortal</li>
+	</inspectorTabs>
+	<comps>
+		<li Class="CompProperties_Effecter">
+			<effecterDef>PsychicRitual_Sustained</effecterDef>
+		</li>
+		<li Class="CompProperties_Glower">
+			<glowRadius>10</glowRadius>
+			<glowColor>(255, 255, 255, 0)</glowColor>
+		</li>
+		<!-- <li Class="VPE_Voidweaver.CompProperties_ClosePortalGizmo"/> -->
+	</comps>
+</ThingDef>
+  
+<MapGeneratorDef>
+	<defName>VoidSpire_STNL</defName>
+	<label>Void Spire</label>
+	<isUnderground>True</isUnderground>
+	<roofDef>VoidmetalRoof</roofDef>
+	<disableCallAid>true</disableCallAid>
+	<pocketMapProperties>
+		<biome>TheVoid_STNL</biome>
+		<temperature>0</temperature>
+	</pocketMapProperties>
+	<genSteps>
+		<li>MainVoidGroundSTNL</li>
+		<li>SpireRoomsSTNL</li>
+		<!-- Disabling fogging metal hell, because it looks bad at the edges and FOW doesn't serve a practical purpose.
+      <li>Fog</li>-->
+	</genSteps>
+</MapGeneratorDef>
+
+<GenStepDef>
+	<defName>SpireRoomsSTNL</defName>
+	<order>2</order>
+	<genStep Class="VPE_Voidweaver.GenStep_SpireRooms"/>
+</GenStepDef>
+  
+
+<!-- Void Shard Loot -->
+
+
+  <ThingSetMakerDef>
+    <defName>MapGen_VoidShardsSpireLootSTNL</defName>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+
+        <!-- Medicine -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MedicineUltratech</li>
+                </thingDefs>
+              </filter>
+              <countRange>5~10</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Luciferium -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Luciferium</li>
+                </thingDefs>
+              </filter>
+              <countRange>12~15</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+		
+		<!-- Uranium -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Uranium</li>
+                </thingDefs>
+              </filter>
+              <countRange>50~100</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Hyperweave & plasteel -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Plasteel</li>
+                  <li>Hyperweave</li>
+                </thingDefs>
+              </filter>
+              <countRange>50~100</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Advanced components -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>ComponentSpacer</li>
+                </thingDefs>
+              </filter>
+              <countRange>4~6</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+		
+		<!-- Eltex -->
+        <li>
+          <weight>0.3</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>VPE_Eltex</li>
+                </thingDefs>
+              </filter>
+              <countRange>20~30</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+		
+        <!-- Unique weapon -->
+        <li MayRequire="Ludeon.RimWorld.Odyssey">
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_Count">
+            <fixedParams>
+              <qualityGenerator>Reward</qualityGenerator>
+              <filter>
+                <thingSetMakerTagsToAllow>
+                  <li>UniqueWeapon</li>
+                </thingSetMakerTagsToAllow>
+              </filter>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+		
+
+        <!-- Misc high value -->
+        <li>
+          <weight>2.0</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Apparel_PsychicInsanityLance</li>
+                  <li>Apparel_PsychicShockLance</li>
+                  <li>ArchotechArm</li>
+                  <li>ArchotechEye</li>
+                  <li>ArchotechLeg</li>
+                  <li>Gun_DoomsdayRocket</li>
+                  <li>Gun_TripleRocket</li>
+                  <li>MechSerumHealer</li>
+                  <li>MechSerumResurrector</li>
+                  <li>OrbitalTargeterBombardment</li>
+                  <li>OrbitalTargeterPowerBeam</li>
+				  <li>PsychicAmplifier</li>
+                  <li>PsychicAnimalPulser</li>
+                  <li>PsychicEmanator</li>
+                  <li>PsychicSoothePulser</li>
+                  <li>Shell_AntigrainWarhead</li>
+                  <li>TechprofSubpersonaCore</li>
+				  <li>AIPersonaCore</li>
+				  <li>RevenantSpine</li>
+                  <li>VanometricPowerCell</li>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">ArchiteCapsule</li>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCapacitySerum</li>
+                  <li MayRequire="Ludeon.RimWorld.Biotech">Genepack</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">BiomutationPulser</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Apparel_BiomutationLance</li>
+				  <li MayRequire="Ludeon.Rimworld.Odyssey">Gravcore</li>
+                </thingDefs>
+              </filter>
+              <countRange>1</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+</Defs>
