@@ -71,59 +71,59 @@
 	</comps>
 </HediffDef> 	
 	
- <HediffDef>
-      <defName>ProtometalhorrorSTNL</defName>
-      <label>Proto-horror</label>
-      <description>This person has been mutated into a being that is half human half metalhorror, they also possess the ability to cut down enemies thanks to their new nature.</description>
-      <descriptionShort>This person has been mutated into a being that is half human half metalhorror, they also possess the ability to cut down enemies thanks to their new nature.</descriptionShort>
-      <defaultLabelColor>(1, 0, 0)</defaultLabelColor>
-      <scenarioCanAdd>true</scenarioCanAdd>
-      <initialSeverity>1</initialSeverity> 
-      <minSeverity>0</minSeverity>
-      <maxSeverity>1</maxSeverity>
-      <isBad>false</isBad>
-      <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
-      <stages>
-	         <li>
-		    <minSeverity>1</minSeverity>
+<HediffDef>
+	<defName>ProtometalhorrorSTNL</defName>
+	<label>Proto-horror</label>
+	<description>This person has been mutated into a being that is half human half metalhorror, they also possess the ability to cut down enemies thanks to their new nature.</description>
+	<descriptionShort>This person has been mutated into a being that is half human half metalhorror, they also possess the ability to cut down enemies thanks to their new nature.</descriptionShort>
+	<defaultLabelColor>(1, 0, 0)</defaultLabelColor>
+	<scenarioCanAdd>true</scenarioCanAdd>
+	<initialSeverity>1</initialSeverity>
+	<minSeverity>0</minSeverity>
+	<maxSeverity>1</maxSeverity>
+	<isBad>false</isBad>
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<stages>
+		<li>
+			<minSeverity>1</minSeverity>
 			<painFactor>0.25</painFactor>
-            <statOffsets>
-               <MoveSpeed>-1</MoveSpeed>
-            </statOffsets>
-            <statFactors>
-               <IncomingDamageFactor>0.75</IncomingDamageFactor>
-            </statFactors>
-         </li>
-      </stages>
-      <renderNodeProperties>
-         <li>
-            <debugLabel>Metalhorror Body</debugLabel>
-            <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
-            <texPaths>
-               <li>Pawn/Protohorror/Protohorror</li>
-            </texPaths>
-            <baseLayer>94</baseLayer>
-            <texSeed>1</texSeed>
-         </li>
-      </renderNodeProperties>
-      <hediffClass>HediffWithComps</hediffClass>
-	  <comps>
-<li Class="HediffCompProperties_VerbGiver">
-            <tools>
-               <li>
-                  <label>Metal blade</label>
-                  <capacities>
-                     <li>Cut</li>
-					 <li>Stab</li>
-                  </capacities>
-                  <power>20</power>
-                  <cooldownTime>1</cooldownTime>
-                  <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
-               </li>
-            </tools>
-         </li>
-</comps>
-   </HediffDef> 
+			<statOffsets>
+				<MoveSpeed>-1</MoveSpeed>
+			</statOffsets>
+			<statFactors>
+				<IncomingDamageFactor>0.75</IncomingDamageFactor>
+			</statFactors>
+		</li>
+	</stages>
+	<renderNodeProperties>
+		<li>
+			<debugLabel>Metalhorror Body</debugLabel>
+			<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+			<texPaths>
+				<li>Pawn/Protohorror/Protohorror</li>
+			</texPaths>
+			<baseLayer>94</baseLayer>
+			<texSeed>1</texSeed>
+		</li>
+	</renderNodeProperties>
+	<hediffClass>HediffWithComps</hediffClass>
+	<comps>
+		<li Class="HediffCompProperties_VerbGiver">
+			<tools>
+				<li>
+					<label>Metal blade</label>
+					<capacities>
+						<li>Cut</li>
+						<li>Stab</li>
+					</capacities>
+					<power>20</power>
+					<cooldownTime>1</cooldownTime>
+					<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				</li>
+			</tools>
+		</li>
+	</comps>
+</HediffDef> 
    
    
 <HediffDef>
