@@ -315,43 +315,51 @@
 	<!-- Level 6 -->
 	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_ProtohorrorSTNL</defName>
-		<label>Proto-horror</label>
-		<description>Turns the target into an half metalhorror and half human. reducing their feeling of pain and the amount of damage taken at the cost of movement speed.</description>
-		<iconPath>UI_VoidweaverSTNL/Abilities/Proto</iconPath>
-		<castTime>120</castTime>
-		<targetMode>Pawn</targetMode>
-		<range>14.9</range>
+		<label>Void shift</label>
+		<description>Interchanges the location of two points in space.</description>
+		<iconPath>UI_VoidweaverSTNL/Abilities/Ability_VoidShift</iconPath>
+		<abilityClass>VPE_Voidweaver.Ability_VoidShift</abilityClass>
+		<castTime>60</castTime>
+		<range>50.9</range>
+		<radius>10.9</radius>
 		<chance>0</chance>
 		<castSound>VoidMonolith_ActivatedL2L3</castSound>
 		<needsTicking>true</needsTicking>
-		<abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
-		<targetingParameters>
-			<canTargetLocations>False</canTargetLocations>
-			<canTargetSelf>True</canTargetSelf>
-			<canTargetAnimals>false</canTargetAnimals>
-			<canTargetPawns>True</canTargetPawns>
-			<canTargetHumans>True</canTargetHumans>
-			<canTargetMechs>false</canTargetMechs>
-		</targetingParameters>
+		<requireLineOfSight>false</requireLineOfSight>
+		<targetCount>2</targetCount>
+		<targetModes>
+		<li>Location</li>
+		<li>Location</li>
+		</targetModes>
+		<targetingParametersList>
+			<li>
+				<canTargetLocations>true</canTargetLocations>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</li>
+			<li>
+				<canTargetLocations>true</canTargetLocations>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</li>
+		</targetingParametersList>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_VoidweaverSTNL</path>
 				<level>6</level>
 				<order>1</order>
-				<psyfocusCost>0.40</psyfocusCost>
-				<entropyGain>0</entropyGain>
+				<psyfocusCost>0.10</psyfocusCost>
+				<entropyGain>150</entropyGain>
 				<prerequisites>
 					<li>VPE_NoctolithSTNL</li>
 					<li>VPE_VoidstructureSTNL</li>
 				</prerequisites>
-			</li>
-			<li Class="VEF.Abilities.AbilityExtension_Hediff">
-				<hediff>ProtometalhorrorSTNL</hediff>
-			</li>
-			<li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
-				<effecterDef>PsychicRitual_Complete</effecterDef>
-				<maintainForTicks>60</maintainForTicks>
-				<scale>1</scale>
 			</li>
 		</modExtensions>
 	</VEF.Abilities.AbilityDef>
@@ -389,7 +397,7 @@
 			</li>
 		</modExtensions>
 	</VEF.Abilities.AbilityDef>
-		<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_VoidWarpSTNL</defName>
 		<label>Void warp</label>
 		<description>Tear open a one-way void gate to the target world tile. Non-hostile creatures near the caster will be transported alongside them.\n\nSelecting a world site will allow the caster to select their arrival point within its map.</description>
@@ -404,12 +412,12 @@
 		<needsTicking>true</needsTicking>
 		<abilityClass>VPE_Voidweaver.Ability_VoidTravel</abilityClass>
 		<!-- <targetingParameters> -->
-			<!-- <canTargetLocations>False</canTargetLocations> -->
-			<!-- <canTargetSelf>True</canTargetSelf> -->
-			<!-- <canTargetAnimals>false</canTargetAnimals> -->
-			<!-- <canTargetPawns>True</canTargetPawns> -->
-			<!-- <canTargetHumans>True</canTargetHumans> -->
-			<!-- <canTargetMechs>false</canTargetMechs> -->
+		<!-- <canTargetLocations>False</canTargetLocations> -->
+		<!-- <canTargetSelf>True</canTargetSelf> -->
+		<!-- <canTargetAnimals>false</canTargetAnimals> -->
+		<!-- <canTargetPawns>True</canTargetPawns> -->
+		<!-- <canTargetHumans>True</canTargetHumans> -->
+		<!-- <canTargetMechs>false</canTargetMechs> -->
 		<!-- </targetingParameters> -->
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">

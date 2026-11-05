@@ -3,4 +3,5 @@
 <VoidSpireEngagingNormalModeSTNL>{0} Intruders(s) Found. Engaging Moderate Threat Response.</VoidSpireEngagingNormalModeSTNL>
 <VoidSpireEngagingHardModeSTNL>{0} Intruders(s) Found. Engaging Critical Threat Response.</VoidSpireEngagingHardModeSTNL>
 <VoidSpireEngagingCriticalModeSTNL>{0} Intruders(s) Found. Engaging Threat Reversal Response.</VoidSpireEngagingCriticalModeSTNL>
+<VPE_Voidweaver_Voidshift_Refusal_Overlap_STNL>Cannot overlap origin and destination points.</VPE_Voidweaver_Voidshift_Refusal_Overlap_STNL>
 </LanguageData>
